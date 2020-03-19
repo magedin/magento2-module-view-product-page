@@ -1,0 +1,22 @@
+{
+    "name": "magedin/view-product-page",
+    "description": "This module enables the shopper to view product page in front store by clicking in one button on admin product edit page.",
+    "type": "magento2-module",
+    "authors": [
+        {
+            "name": "Tiago Sampaio",
+            "email": "tiago.sampaio@magedin.com"
+        }
+    ],
+    "license": [
+        "OSL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MagedIn\\ViewProductPage\\": ""
+        }
+    }
+}
