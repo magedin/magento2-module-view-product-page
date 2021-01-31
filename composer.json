@@ -1,16 +1,7 @@
 {
-    "name": "magedin/view-product-page",
+    "name": "magedin/module-view-product-page",
+    "version": "2.0.0",
     "description": "This module enables the shopper to view product page in front store by clicking in one button on admin product edit page.",
-    "type": "magento2-module",
-    "authors": [
-        {
-            "name": "Tiago Sampaio",
-            "email": "tiago.sampaio@magedin.com"
-        }
-    ],
-    "license": [
-        "OSL-3.0"
-    ],
     "autoload": {
         "files": [
             "registration.php"
@@ -18,5 +9,55 @@
         "psr-4": {
             "MagedIn\\ViewProductPage\\": ""
         }
+    },
+    "require": {
+        "php": "~7.2.0||~7.3.0||~7.4.0||~8.0.0",
+        "magedin/module-core": "~1.0.0",
+        "magento/framework": "102.0.*||103.0.*"
+    },
+    "require-dev": {
+        "magedin/magento2-develop-tools": "~1.0.0"
+    },
+    "type": "magento2-module",
+    "config": {
+        "sort-packages": true
+    },
+    "license": [
+        "Proprietary"
+    ],
+    "authors": [
+        {
+            "name": "MagedIn Technology",
+            "email": "support@magedin.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        },
+        {
+            "type": "composer",
+            "url": "https://magedin.repo.repman.io"
+        }
+    ],
+    "scripts": {
+        "coding-standard": [
+            "@phpcs",
+            "@phpmd"
+        ],
+        "tests": [
+            "@coding-standard",
+            "@phpunit"
+        ],
+        "phpunit": "vendor/bin/phpunit Test",
+        "phpcs-configure": [
+            "vendor/bin/phpcs --config-set installed_paths vendor/magento/magento-coding-standard"
+        ],
+        "phpcs": [
+            "@phpcs-configure",
+            "vendor/bin/phpcs --standard=Magento2 --severity=1 --extensions=php Console Model Test"
+        ],
+        "phpmd": "vendor/bin/phpmd Block/ text cleancode,codesize,controversial,design,naming,unusedcode"
     }
 }
