@@ -21,11 +21,6 @@ use Magento\Framework\Registry;
 use Magento\Framework\View\Element\UiComponent\Context;
 use Magento\Store\Model\StoreManagerInterface;
 
-/**
- * Class ViewProduct
- *
- * @package MagedIn\ViewProductPage\Block\Adminhtml\Catalog\Product\Edit
- */
 class ViewProduct extends Generic
 {
     /**
