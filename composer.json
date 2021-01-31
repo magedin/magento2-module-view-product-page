@@ -23,7 +23,7 @@
         "sort-packages": true
     },
     "license": [
-        "Proprietary"
+        "proprietary"
     ],
     "authors": [
         {
