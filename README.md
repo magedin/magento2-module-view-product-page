@@ -1,5 +1,6 @@
 # View Product Page for Magento 2
 
+![Magento 2 Coding Standard](https://github.com/magedin/magento2-module-view-product-page/workflows/Magento%202%20Coding%20Standard/badge.svg)
 [![Latest Stable Version](https://poser.okvpn.org/magedin/view-product-page/v/stable)](https://packagist.org/packages/magedin/view-product-page)
 [![Total Downloads](https://poser.okvpn.org/magedin/view-product-page/downloads)](https://packagist.org/packages/magedin/view-product-page)
 [![License](https://poser.okvpn.org/magedin/view-product-page/license)](https://packagist.org/packages/magedin/view-product-page)
