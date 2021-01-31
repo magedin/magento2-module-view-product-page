@@ -1,7 +1,7 @@
 {
     "name": "magedin/module-view-product-page",
     "version": "2.0.0",
-    "description": "This module enables the shopper to view product page in front store by clicking in one button on admin product edit page.",
+    "description": "This module enables the shopper to view the product page in the front store by clicking one button on the admin product edit page.",
     "autoload": {
         "files": [
             "registration.php"
