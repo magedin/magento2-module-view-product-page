@@ -13,12 +13,12 @@ For Magento 2.3 and later.
 
 ## Installation
 
-You can download this module and install it direct in your Magento `app/code` directory but I really recommend you install using `composer` installation process described below.
+You can download this module and install it directly in your Magento `app/code` directory but I really recommend you install using `composer` installation process described below.
 
 ### Composer Installation
 
 ```bash
-composer require magedin/view-product-page
+composer require magedin/module-view-product-page
 ```
 
 ## Contribution
@@ -27,7 +27,7 @@ Want to contribute to this extension? The quickest way is to open a [pull reques
 
 ## Support
 
-If you encounter any problems or bugs, please open an [issue](https://github.com/magedin/magento2-view-product-page/issues) on GitHub.
+If you encounter problems or bugs, please open an [issue](https://github.com/magedin/magento2-view-product-page/issues) on GitHub.
 
 Need help setting up or want to customize this extension to meet your business needs? Please email support@magedin.com and if we like your idea we will add this feature for free or at a discounted rate.
 
