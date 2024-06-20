@@ -1,6 +1,5 @@
 {
     "name": "magedin/module-view-product-page",
-    "version": "2.0.0",
     "description": "This module enables the shopper to view the product page in the front store by clicking one button on the admin product edit page.",
     "autoload": {
         "files": [
@@ -11,9 +10,9 @@
         }
     },
     "require": {
-        "php": "~7.2.0||~7.3.0||~7.4.0||~8.0.0",
-        "magedin/module-core": "~1.0.0",
-        "magento/framework": "102.0.*||103.0.*"
+        "php": "^7.4||^8.0",
+        "magedin/module-core": "^1.0",
+        "magento/framework": "*"
     },
     "require-dev": {
         "magedin/magento2-develop-tools": "~1.0.0"
