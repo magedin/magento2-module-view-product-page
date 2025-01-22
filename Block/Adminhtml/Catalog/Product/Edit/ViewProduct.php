@@ -17,6 +17,8 @@ use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Block\Adminhtml\Product\Edit\Button\Generic;
 use Magento\Catalog\Model\Product;
 use Magento\Catalog\Model\Product\Url as ProductUrl;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Registry;
 use Magento\Framework\View\Element\UiComponent\Context;
 use Magento\Store\Model\StoreManagerInterface;
@@ -33,15 +35,29 @@ class ViewProduct extends Generic
      */
     private StoreManagerInterface $storeManager;
 
+    /**
+     * @var RequestInterface
+     */
+    private RequestInterface $request;
+
+    /**
+     * @param Context $context
+     * @param Registry $registry
+     * @param ProductUrl $productUrl
+     * @param StoreManagerInterface $storeManager
+     * @param RequestInterface $request
+     */
     public function __construct(
         Context $context,
         Registry $registry,
         ProductUrl $productUrl,
-        StoreManagerInterface $storeManager
+        StoreManagerInterface $storeManager,
+        RequestInterface $request
     ) {
         parent::__construct($context, $registry);
         $this->productUrl = $productUrl;
         $this->storeManager = $storeManager;
+        $this->request = $request;
     }
 
     /**
@@ -66,7 +82,28 @@ class ViewProduct extends Generic
     {
         /** @var Product | ProductInterface $product */
         $product = $this->getProduct();
-        $product->setStoreId($this->storeManager->getDefaultStoreView()->getId());
+        $product->setStoreId($this->getResolvedStoreId());
         return $this->productUrl->getProductUrl($product);
+    }
+
+    /**
+     * DocBlock for method.
+     *
+     * @return int
+     */
+    private function getResolvedStoreId(): int
+    {
+        try {
+            /**
+             * Confirm the store ID provided really exists.
+             * @var int $storeId
+             */
+            $defaultStoreId = (int) $this->storeManager->getDefaultStoreView()->getId();
+            $storeId = $this->request->getParam('store', $defaultStoreId);
+            $storeId = $this->storeManager->getStore($storeId)->getId();
+        } catch (NoSuchEntityException $e) {
+            $storeId = $this->storeManager->getDefaultStoreView()->getId();
+        }
+        return (int) $storeId;
     }
 }
